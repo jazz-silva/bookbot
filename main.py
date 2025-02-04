@@ -5,9 +5,8 @@ def main():
   text = getBookText(book_path)
   count = getLenText(text)
   stringNumber = stringCount(text)
-  stringAggregate = stringCharList(stringNumber, count)
-  #print(f"{count} words found in the document")
-  #print(stringNumber)
+  stringCharList(stringNumber, count)
+
 
 def getBookText(book_path):
   with open(book_path) as f:
@@ -38,19 +37,11 @@ def stringCharList(stringCount, word_count):
       charList.append(newDict)
   charList.sort(reverse=True, key=sort_on)
   print("--- Begin report of books/frankenstein.txt ---")
-  print(f"{word_count} words found in the document\n")  # \n adds a blank line
+  print(f"{word_count} words found in the document\n")  
     
   for char_dict in charList:
       print(f"The '{char_dict['char']}' character was found {char_dict['num']} times")
   print("--- End report ---")
-
-# def stringReport(stringCharList, count):
-#     print("--- Begin report of books/frankenstein.txt ---")
-#     print(f"{count} words found in the document\n")  # \n adds a blank line
-    
-#     for char_dict in charList:
-#         print(f"The '{char_dict['char']}' character was found {char_dict['num']} times")
-#     print("--- End report ---")
 
 def sort_on(dict):
   return dict["num"]
